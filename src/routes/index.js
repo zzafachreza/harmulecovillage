@@ -55,11 +55,19 @@ import {
   AddSatu,
   AddDua,
   Kuis,
+  Bsu,
+  Inovasi,
+  TentangKami,
+  In1,
+  In2,
+  In3,
+  In4,
 } from '../pages';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
 import { colors } from '../utils/colors';
 import { color } from 'react-native-reanimated';
+import { fonts } from '../utils';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -163,6 +171,8 @@ export default function Router() {
         }}
       />
 
+
+
       <Stack.Screen
         name="Success2"
         component={Success2}
@@ -204,11 +214,155 @@ export default function Router() {
 
 
       <Stack.Screen
-        name="Kuis"
-        component={Kuis}
+        name="TentangKami"
+        component={TentangKami}
         options={{
-          headerTitle: 'Kuis',
-          headerShown: false,
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Tentang Kami',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="In1"
+        component={In1}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Maggot Village',
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="In2"
+        component={In2}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Kolam ASA',
+          headerShown: true,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="In3"
+        component={In3}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'SEL-BI',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="In4"
+        component={In4}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'AURA',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="Bsu"
+        component={Bsu}
+        options={{
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Bank Sampah Singgi',
+          headerShown: true,
+
+          cardStyleInterpolator: ({ current, layouts }) => {
+            return {
+              cardStyle: {
+                transform: [
+                  {
+                    translateX: current.progress.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: [layouts.screen.width, 0],
+                    }),
+                  },
+                ],
+              },
+            };
+          },
+        }}
+      />
+
+      <Stack.Screen
+        name="Inovasi"
+        component={Inovasi}
+        options={{
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Inovasi',
+          headerShown: true,
 
           cardStyleInterpolator: ({ current, layouts }) => {
             return {

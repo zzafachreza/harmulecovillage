@@ -44,7 +44,13 @@ import Add2 from './Add2';
 import AddSatu from './AddSatu';
 import AddDua from './AddDua';
 import Kuis from './Kuis';
-
+import Bsu from './Bsu';
+import Inovasi from './Inovasi';
+import TentangKami from './TentangKami';
+import In1 from './In1';
+import In2 from './In2';
+import In3 from './In3';
+import In4 from './In4';
 
 
 
@@ -53,6 +59,13 @@ import Kuis from './Kuis';
 
 
 export {
+  Bsu,
+  In1,
+  In2,
+  In3,
+  In4,
+  TentangKami,
+  Inovasi,
   Splash,
   SuratIzin,
   AddDua,

@@ -21,8 +21,47 @@ import 'intl';
 import 'intl/locale-data/jsonp/en';
 import LottieView from 'lottie-react-native';
 import { useIsFocused } from '@react-navigation/native';
+import { ScrollView } from 'react-native';
+
+
+const MyMenuHome = ({ onPress, img, label, width }) => {
+
+  return (
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View>
+        <View style={{
+          margin: 5,
+          width: width / 5,
+          height: width / 5,
+          borderRadius: width / 2,
+          padding: 5,
+          backgroundColor: colors.primary,
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>
+          <Image source={img} style={{
+            width: width / 12,
+            height: width / 12,
+            resizeMode: 'contain'
+          }} />
+        </View>
+        <Text style={{
+          marginTop: 2,
+          fontFamily: fonts.secondary[400],
+          fontSize: width / 30,
+          textAlign: 'center',
+          color: colors.primary,
+        }}>{label}</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  )
+}
 
 export default function Home({ navigation }) {
+
+
+
+
   const [user, setUser] = useState([]);
   const [cart, setCart] = useState(0);
   const [token, setToken] = useState('');
@@ -102,20 +141,21 @@ export default function Home({ navigation }) {
 
       <View
         style={{
-          height: windowHeight / 9,
           padding: 10,
-          marginBottom: 20,
-          backgroundColor: colors.white,
+          backgroundColor: colors.primary,
           flexDirection: 'row',
+          borderBottomLeftRadius: 20,
+          borderBottomRightRadius: 20,
+          marginBottom: 20,
         }}>
 
-        <View style={{ flex: 1, paddingTop: 10, flexDirection: 'row' }}>
+        <View style={{ flex: 1, paddingTop: 0, flexDirection: 'row' }}>
           <View style={{ paddingLeft: 10, flex: 3 }}>
 
             <Text
               style={{
                 fontSize: windowWidth / 30,
-                color: colors.primary,
+                color: colors.white,
                 fontFamily: fonts.secondary[600],
               }}>
               Selamat datang,
@@ -123,7 +163,7 @@ export default function Home({ navigation }) {
             <Text
               style={{
                 fontSize: windowWidth / 30,
-                color: colors.black,
+                color: colors.white,
                 fontFamily: fonts.secondary[600],
               }}>
               {user.nama_lengkap}
@@ -140,11 +180,11 @@ export default function Home({ navigation }) {
 
 
             }}>
-            <Icon type='ionicon' name="cart" />
+            <Icon type='ionicon' name="cart" color={colors.white} />
             <Text style={{
-              position: 'absolute', top: 2, right: 5, backgroundColor: colors.primary, width: 15,
+              position: 'absolute', top: 2, right: 5, backgroundColor: colors.secondary, width: 15,
               textAlign: 'center',
-              height: 15, borderRadius: 2, color: colors.white
+              height: 15, borderRadius: 2, color: colors.black
             }} >{cart}</Text>
 
           </TouchableOpacity>
@@ -153,59 +193,44 @@ export default function Home({ navigation }) {
 
       </View>
 
-      <MyCarouser />
 
+
+
+      <MyCarouser />
       <View style={{
         flex: 1,
+        justifyContent: 'space-evenly',
+
         paddingHorizontal: 20,
-        paddingVertical: 10,
+        paddingVertical: 20,
       }}>
-        {/* <FlatList data={BSU} renderItem={({ item }) => {
-          return (
-            <TouchableWithoutFeedback>
-              <View style={{
-                padding: 10,
-                backgroundColor: colors.primary,
-                borderRadius: 10,
-                marginVertical: 5,
-              }}>
-                <Text style={{
-                  fontFamily: fonts.secondary[600],
-                  color: colors.white,
-                  fontSize: 20,
-                }}>{item.nama_bsu}</Text>
-              </View>
-            </TouchableWithoutFeedback>
-          )
-        }} /> */}
 
-        {BSU.length > 0 && BSU.map(item => {
-          return (
-            <TouchableWithoutFeedback onPress={() => {
 
-              navigation.navigate('Barang', item);
-              storeData('bsu', item);
 
-            }}>
-              <View style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 10,
-                backgroundColor: colors.tertiary,
-                borderRadius: 10,
-                marginVertical: 5,
-              }}>
-                <Text style={{
-                  fontFamily: fonts.secondary[600],
-                  color: colors.primary,
-                  fontSize: 20,
-                }}>{item.nama_bsu}</Text>
-              </View>
-            </TouchableWithoutFeedback>
-          )
-        })}
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+
+        }}>
+          <MyMenuHome width={windowWidth} img={require('../../assets/A1.png')} onPress={() => navigation.navigate('TentangKami')} label="Tentang Kami" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A2.png')} onPress={() => navigation.navigate('Inovasi')} label="Inovasi" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A3.png')} onPress={() => navigation.navigate('TentangKami')} label="Galeri" />
+        </View>
+
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-around'
+        }}>
+
+          <MyMenuHome width={windowWidth} img={require('../../assets/A4.png')} onPress={() => navigation.navigate('Inovasi')} label="Kabar Terbaru" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A5.png')} onPress={() => navigation.navigate('TentangKami')} label="User Kursus" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A6.png')} onPress={() => navigation.navigate('Inovasi')} label="Testimoni" />
+        </View>
+
+
+
       </View>
+
 
     </SafeAreaView>
   );
