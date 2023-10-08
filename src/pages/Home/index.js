@@ -214,7 +214,7 @@ export default function Home({ navigation }) {
         }}>
           <MyMenuHome width={windowWidth} img={require('../../assets/A1.png')} onPress={() => navigation.navigate('TentangKami')} label="Tentang Kami" />
           <MyMenuHome width={windowWidth} img={require('../../assets/A2.png')} onPress={() => navigation.navigate('Inovasi')} label="Inovasi" />
-          <MyMenuHome width={windowWidth} img={require('../../assets/A3.png')} onPress={() => navigation.navigate('TentangKami')} label="Galeri" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A3.png')} onPress={() => navigation.navigate('Galeri')} label="Galeri" />
         </View>
 
         <View style={{
@@ -222,9 +222,9 @@ export default function Home({ navigation }) {
           justifyContent: 'space-around'
         }}>
 
-          <MyMenuHome width={windowWidth} img={require('../../assets/A4.png')} onPress={() => navigation.navigate('Inovasi')} label="Kabar Terbaru" />
-          <MyMenuHome width={windowWidth} img={require('../../assets/A5.png')} onPress={() => navigation.navigate('TentangKami')} label="User Kursus" />
-          <MyMenuHome width={windowWidth} img={require('../../assets/A6.png')} onPress={() => navigation.navigate('Inovasi')} label="Testimoni" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A4.png')} onPress={() => navigation.navigate('Artikel')} label="Kabar Terbaru" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A5.png')} onPress={() => navigation.navigate('Kursus')} label="User Kursus" />
+          <MyMenuHome width={windowWidth} img={require('../../assets/A6.png')} onPress={() => navigation.navigate('Testimoni')} label="Testimoni" />
         </View>
 
 

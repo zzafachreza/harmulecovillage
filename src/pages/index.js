@@ -51,7 +51,12 @@ import In1 from './In1';
 import In2 from './In2';
 import In3 from './In3';
 import In4 from './In4';
-
+import Galeri from './Galeri';
+import Artikel from './Artikel';
+import ArtikelDetail from './ArtikelDetail';
+import Kursus from './Kursus';
+import KursusDetail from './KursusDetail';
+import Testimoni from './Testimoni';
 
 
 
@@ -64,6 +69,9 @@ export {
   In2,
   In3,
   In4,
+  Artikel,
+  ArtikelDetail,
+  Galeri,
   TentangKami,
   Inovasi,
   Splash,
@@ -112,5 +120,8 @@ export {
   Laporan,
   Hadiah,
   Redeem,
+  Kursus,
+  KursusDetail,
+  Testimoni,
   ListRedeem,
 };

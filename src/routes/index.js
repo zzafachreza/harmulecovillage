@@ -62,6 +62,12 @@ import {
   In2,
   In3,
   In4,
+  Galeri,
+  Artikel,
+  ArtikelDetail,
+  Kursus,
+  KursusDetail,
+  Testimoni,
 } from '../pages';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BottomNavigator } from '../components';
@@ -310,6 +316,127 @@ export default function Router() {
           },
           headerTitle: 'AURA',
           headerShown: true,
+        }}
+      />
+
+
+      <Stack.Screen
+        name="Galeri"
+        component={Galeri}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Galeri',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="Artikel"
+        component={Artikel}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Kabar Terbaru',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="ArtikelDetail"
+        component={ArtikelDetail}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Kabar Terbaru',
+          headerShown: false,
+        }}
+      />
+
+      <Stack.Screen
+        name="Kursus"
+        component={Kursus}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'User Kursus',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="Testimoni"
+        component={Testimoni}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Testimoni',
+          headerShown: true,
+        }}
+      />
+
+      <Stack.Screen
+        name="KursusDetail"
+        component={KursusDetail}
+        options={{
+
+          headerTintColor: 'white',
+          headerTitleAlign: 'center',
+          headerTitleStyle: {
+            fontSize: 25,
+            fontFamily: fonts.secondary[600]
+          },
+          headerStyle: {
+            backgroundColor: colors.primary,
+            elevation: 0, // remove shadow on Android
+          },
+          headerTitle: 'Kabar Terbaru',
+          headerShown: false,
         }}
       />
 

@@ -21,3 +21,4 @@ export const getData = async key => {
 
 
 export const urlAPI = 'https://harmul.okeadmin.com/api';
+export const urlAPIV2 = 'https://harmul.okeadmin.com/myapi/';
