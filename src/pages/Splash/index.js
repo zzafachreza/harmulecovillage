@@ -82,7 +82,7 @@ export default function Splash({ navigation }) {
             fontSize: 20,
             color: colors.primary,
 
-          }}>Harmul Eco-Village</Text> Merupakan Layanan Edukasi, Inovasi dan Jasa Pengelolaan Sampah Berbasis Masyarakat dalam mendukung ketahanan pangan untuk mewujudkan Pengelolaan Kampung Kota Berkelanjutan
+          }}>Harmul Eco-Village</Text>{'\n'}Merupakan Layanan Edukasi, Inovasi dan Jasa Pengelolaan Sampah Berbasis Masyarakat dalam mendukung ketahanan pangan untuk mewujudkan Pengelolaan Kampung Kota Berkelanjutan
         </Text>
       </View>
       <View
