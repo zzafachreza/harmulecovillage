@@ -36,7 +36,10 @@ export default function ({ navigation, route }) {
   }, []);
 
   const getDataBarang = () => {
-    axios.get(urlAPI + '/1data_sampah.php').then(res => {
+    axios.post(urlAPI + '/1data_sampah.php', {
+      fid_bsu: route.params.id_bsu
+    }).then(res => {
+      console.log(res.data)
       setData(res.data);
     });
   };

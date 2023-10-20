@@ -118,7 +118,9 @@ export default function TentangKami() {
                         height: 400,
                         resizeMode: 'contain'
                     }} />
-                    <Text style={styles.desc}>Didukung oleh Kelurahan Harapan Mulia, Harmulecovillage.com adalah sebuah platform berbasis website yang merupakan Layanan Edukasi, Inovasi dan Jasa Pengelolaan Sampah Berbasis Masyarakat dalam mendukung ketahanan pangan untuk mewujudkan Pengelolaan Kampung Kota Berkelanjutan.</Text>
+                    <Text style={styles.desc}>
+                        Harmul Ecovillage adalah sebuah aplikasi berbasis android yang merupakan Layanan Edukasi, Inovasi dan Jasa Pengelolaan Sampah Berbasis Masyarakat dalam mendukung ketahanan pangan untuk mewujudkan Pengelolaan Kampung Kota Berkelanjutan.
+                    </Text>
                 </View>
 
                 <Judul label="Tim Inovasi" />
