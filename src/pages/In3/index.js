@@ -80,7 +80,7 @@ export default function In3() {
                     width: '100%',
                     margin: 0,
                     alignSelf: 'center',
-                    height: 200,
+                    height: 1000,
                     resizeMode: 'contain'
                 }} />
 

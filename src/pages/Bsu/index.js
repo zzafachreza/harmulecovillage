@@ -63,10 +63,11 @@ export default function Bsu({ navigation }) {
 
                     }}>
                         <View style={{
-                            flex: 1,
+                            // flex: 1,
                             justifyContent: 'center',
                             alignItems: 'center',
                             padding: 10,
+                            height: 70,
                             backgroundColor: colors.tertiary,
                             borderRadius: 10,
                             marginVertical: 3,
@@ -74,7 +75,7 @@ export default function Bsu({ navigation }) {
                             <Text style={{
                                 fontFamily: fonts.secondary[600],
                                 color: colors.primary,
-                                fontSize: 20,
+                                fontSize: 15,
                             }}>{item.nama_bsu}</Text>
                         </View>
                     </TouchableWithoutFeedback>

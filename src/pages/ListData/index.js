@@ -10,7 +10,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { storeData, getData, urlAPI } from '../../utils/localStorage';
+import { storeData, getData, urlAPI, urlAPIV2 } from '../../utils/localStorage';
 import axios from 'axios';
 import { colors } from '../../utils/colors';
 import { windowWidth, fonts } from '../../utils/fonts';
@@ -25,6 +25,10 @@ const wait = timeout => {
 export default function ({ navigation, route }) {
   const [refreshing, setRefreshing] = React.useState(false);
   const [data, setData] = useState([]);
+  const [saldo, setSaldo] = useState({
+    trx: 0,
+    tarik: 0,
+  })
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -43,6 +47,14 @@ export default function ({ navigation, route }) {
 
   const getDataBarang = () => {
     getData('user').then(res => {
+
+      axios.post(urlAPIV2 + 'get_saldo', {
+        fid_user: res.id
+      }).then(ss => {
+        console.log('saldo', ss.data);
+        setSaldo(ss.data)
+      })
+
       axios
         .post(urlAPI + '/transaksi.php', {
           fid_user: res.id,
@@ -191,12 +203,53 @@ export default function ({ navigation, route }) {
       style={{
         padding: 10,
       }}>
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        padding: 10,
+      }}>
+        <View>
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: 12,
+            textAlign: 'center'
+          }}>Jumlah Transaksi</Text>
+          <Text style={{
+            textAlign: 'center',
+            fontFamily: fonts.secondary[400],
+            fontSize: 15
+          }}>Rp. {new Intl.NumberFormat().format(saldo.trx)}</Text>
+
+        </View>
+        <View>
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: 12, textAlign: 'center'
+          }}>Sudah Ditarik</Text>
+          <Text style={{
+            fontFamily: fonts.secondary[400],
+            fontSize: 15, textAlign: 'center'
+          }}>Rp. {new Intl.NumberFormat().format(saldo.tarik)}</Text>
+
+        </View>
+        <View>
+          <Text style={{
+            fontFamily: fonts.secondary[600],
+            fontSize: 12, textAlign: 'center'
+          }}>Sisa Salod</Text>
+          <Text style={{
+            fontFamily: fonts.secondary[400],
+            fontSize: 15, textAlign: 'center'
+          }}>Rp. {new Intl.NumberFormat().format(saldo.tarik)}</Text>
+
+        </View>
+      </View>
       <FlatList
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-    </ScrollView>
+    </ScrollView >
   );
 }
 

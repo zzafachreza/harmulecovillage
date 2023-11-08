@@ -71,7 +71,7 @@ export default function Inovasi({ navigation }) {
                             <View style={{
                                 flex: 1,
                                 justifyContent: 'center',
-                                // alignItems: 'center',
+                                alignItems: 'center',
                                 padding: 15,
                                 backgroundColor: colors.white,
                                 borderWidth: 1,

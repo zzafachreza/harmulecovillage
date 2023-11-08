@@ -24,7 +24,7 @@ import LottieView from 'lottie-react-native';
 import { useIsFocused } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 
-
+import moment from 'moment'
 export default function Artikel({ navigation, route }) {
     const [data, setData] = useState([]);
 
@@ -61,6 +61,11 @@ export default function Artikel({ navigation, route }) {
                             fontSize: 16,
                             color: colors.primary,
                         }}>{item.judul}</Text>
+                        <Text style={{
+                            fontFamily: fonts.secondary[400],
+                            fontSize: 12,
+                            color: colors.primary,
+                        }}>Tanggal upload hari {moment(item.tanggal).format('dddd, DD MMMM YYYY')} Pukul {item.jam}</Text>
                     </View>
                 </View>
             </TouchableWithoutFeedback>

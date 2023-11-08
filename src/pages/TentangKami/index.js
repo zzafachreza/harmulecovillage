@@ -183,8 +183,8 @@ export default function TentangKami() {
                         fontSize: 14,
                         textAlign: 'center',
                     }}>Jl. Cempaka Wangi II, Kelurahan Harapan Mulia Kecamatan Kemayoran Kota Administrasi Jakarta Pusat
-                        {'\n'} (021)- HP. 085716220125
-                        {'\n'} info.harmuleco-village@gmail.com</Text>
+                        {'\n'} (021)- HP. 0857-1622-0125
+                        {'\n'} harmulecovillage@gmail.com</Text>
 
                 </View>
 
