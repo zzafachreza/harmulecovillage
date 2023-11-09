@@ -81,7 +81,7 @@ export default function In3() {
                     margin: 0,
                     alignSelf: 'center',
                     height: 1000,
-                    resizeMode: 'contain'
+
                 }} />
 
 

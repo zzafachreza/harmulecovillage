@@ -15,7 +15,7 @@ import { fonts } from '../../utils/fonts';
 import { MyInput, MyGap, MyButton, MyPicker } from '../../components';
 import axios from 'axios';
 import LottieView from 'lottie-react-native';
-import { getData, storeData, urlAPI } from '../../utils/localStorage';
+import { getData, storeData, urlAPI, urlAPIV2 } from '../../utils/localStorage';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { showMessage } from 'react-native-flash-message';
 import DatePicker from 'react-native-date-picker';
@@ -150,12 +150,23 @@ export default function EditProfile({ navigation, route }) {
   };
 
 
-
+  const [bsu, setBsu] = useState([]);
   useEffect(() => {
+
+    axios.post(urlAPIV2 + 'get_bsu').then(res => {
+      console.log(res.data);
+      setBsu(res.data);
+
+    })
+
+
     getData('user').then(res => {
       setData(res);
       console.error('data user', res);
     });
+
+
+
     console.log('test edit');
   }, []);
 
@@ -209,8 +220,14 @@ export default function EditProfile({ navigation, route }) {
           label="Upload Foto Profile"
           foto={foto}
         />
+        <MyGap jarak={10} />
 
-
+        <MyPicker label="Bank Sampah" value={data.fid_bsu} data={bsu} onValueChange={x => {
+          setData({
+            ...data,
+            fid_bsu: x
+          })
+        }} />
         <MyGap jarak={10} />
         <MyInput
           label="Nama Lengkap"

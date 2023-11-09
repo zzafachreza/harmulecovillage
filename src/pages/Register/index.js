@@ -17,7 +17,7 @@ import { MyInput, MyGap, MyButton, MyPicker } from '../../components';
 import axios from 'axios';
 import { showMessage } from 'react-native-flash-message';
 import LottieView from 'lottie-react-native';
-import { urlAPI } from '../../utils/localStorage';
+import { urlAPI, urlAPIV2 } from '../../utils/localStorage';
 
 export default function Register({ navigation }) {
   const windowWidth = Dimensions.get('window').width;
@@ -42,13 +42,27 @@ export default function Register({ navigation }) {
     }
   };
 
+  const [bsu, setBsu] = useState([]);
+
   const [data, setData] = useState({
     nama_lengkap: '',
     nip: '',
     email: '',
     password: '',
     telepon: '',
+    fid_bsu: '',
   });
+
+  useEffect(() => {
+    axios.post(urlAPIV2 + 'get_bsu').then(res => {
+      console.log(res.data);
+      setBsu(res.data);
+      setData({
+        ...data,
+        fid_bsu: res.data[0].value
+      })
+    })
+  }, [])
 
   const simpan = () => {
     if (
@@ -119,7 +133,12 @@ export default function Register({ navigation }) {
       /> */}
 
 
-
+        <MyPicker label="Bank Sampah" onValueChange={x => {
+          setData({
+            ...data,
+            fid_bsu: x
+          })
+        }} data={bsu} iconname="options" />
         <MyGap jarak={10} />
         <MyInput
           label="Nama Lengkap"

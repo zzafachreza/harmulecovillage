@@ -85,6 +85,28 @@ export default function Account({ navigation, route }) {
                   fontFamily: fonts.secondary[600],
                   color: colors.black,
                 }}>
+                Bank Sampah
+              </Text>
+              <Text
+                style={{
+                  fontFamily: fonts.secondary[400],
+                  color: colors.primary,
+                }}>
+                {user.nama_bsu}
+              </Text>
+            </View>
+            <View
+              style={{
+                marginVertical: 5,
+                padding: 10,
+                backgroundColor: colors.white,
+                borderRadius: 10,
+              }}>
+              <Text
+                style={{
+                  fontFamily: fonts.secondary[600],
+                  color: colors.black,
+                }}>
                 Nama Lengkap
               </Text>
               <Text

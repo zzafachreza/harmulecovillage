@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     FlatList,
     StyleSheet,
+    ScrollView,
 } from 'react-native';
 import { colors } from '../../utils/colors';
 import { fonts } from '../../utils/fonts';
@@ -39,10 +40,15 @@ export default function Bsu({ navigation }) {
     const [BSU, setBSU] = useState([]);
 
     const __GetTransaction = () => {
-        axios.post(urlAPI + '/1data_bsu.php').then(res => {
-            console.log('bsu', res.data);
 
-            setBSU(res.data)
+        getData('user').then(uu => {
+            axios.post(urlAPI + '/1data_bsu.php', {
+                fid_bsu: uu.fid_bsu,
+            }).then(res => {
+                console.log('bsu', res.data);
+
+                setBSU(res.data)
+            })
         })
 
     }
@@ -53,34 +59,39 @@ export default function Bsu({ navigation }) {
             paddingVertical: 5,
         }}>
 
+            <ScrollView showsVerticalScrollIndicator={false}>
+                {BSU.length > 0 && BSU.map(item => {
+                    return (
+                        <TouchableWithoutFeedback onPress={() => {
 
-            {BSU.length > 0 && BSU.map(item => {
-                return (
-                    <TouchableWithoutFeedback onPress={() => {
+                            navigation.navigate('Barang', item);
+                            storeData('bsu', item);
 
-                        navigation.navigate('Barang', item);
-                        storeData('bsu', item);
-
-                    }}>
-                        <View style={{
-                            // flex: 1,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: 10,
-                            height: 70,
-                            backgroundColor: colors.tertiary,
-                            borderRadius: 10,
-                            marginVertical: 3,
                         }}>
-                            <Text style={{
-                                fontFamily: fonts.secondary[600],
-                                color: colors.primary,
-                                fontSize: 15,
-                            }}>{item.nama_bsu}</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-                )
-            })}
+                            <View style={{
+                                // flex: 1,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                padding: 10,
+                                height: 70,
+                                backgroundColor: colors.tertiary,
+                                borderRadius: 10,
+                                marginVertical: 3,
+                            }}>
+                                <Text style={{
+                                    fontFamily: fonts.secondary[600],
+                                    color: colors.primary,
+                                    fontSize: 15,
+                                }}>{item.nama_bsu}</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                    )
+                })}
+                <View style={{
+                    marginVertical: 5,
+                }} />
+            </ScrollView>
+
 
 
         </View>

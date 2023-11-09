@@ -236,7 +236,7 @@ export default function ({ navigation, route }) {
           <Text style={{
             fontFamily: fonts.secondary[600],
             fontSize: 12, textAlign: 'center'
-          }}>Sisa Salod</Text>
+          }}>Sisa Saldo</Text>
           <Text style={{
             fontFamily: fonts.secondary[400],
             fontSize: 15, textAlign: 'center'
