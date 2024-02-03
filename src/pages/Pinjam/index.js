@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
 import { colors } from '../../utils/colors';
 import { fonts, windowHeight, windowWidth } from '../../utils/fonts';
@@ -69,7 +70,7 @@ export default function Pinjam({ navigation, route }) {
           type: 'success',
           message: 'Berhasil ditambahkan ke keranjang',
         });
-        navigation.replace('MainApp');
+        navigation.goBack();
         modalizeRef.current.close();
       });
   };
@@ -172,7 +173,7 @@ export default function Pinjam({ navigation, route }) {
       <Modalize
         withHandle={false}
         scrollViewProps={{ showsVerticalScrollIndicator: false }}
-        snapPoint={275}
+        snapPoint={windowHeight}
         HeaderComponent={
           <View style={{ padding: 10 }}>
             <View style={{ flexDirection: 'row' }}>
@@ -205,7 +206,7 @@ export default function Pinjam({ navigation, route }) {
         }
         withHandle={false}
         ref={modalizeRef}>
-        <View style={{ flex: 1, height: windowWidth / 2 }}>
+        <View style={{ flex: 1, height: windowWidth }}>
           <View style={{ padding: 10, flex: 1 }}>
             <View style={{ flexDirection: 'row', marginTop: 20 }}>
               <View style={{ flex: 1 }}>
@@ -247,11 +248,10 @@ export default function Pinjam({ navigation, route }) {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
+                    height: 40,
                   }}>
-                  <Text
-                    style={{ fontSize: 16, fontFamily: fonts.secondary[600] }}>
-                    {jumlah}
-                  </Text>
+
+                  <TextInput onChangeText={x => setJumlah(x)} keyboardType='number-pad' value={jumlah.toString()} style={{ fontSize: 20, textAlign: 'center', fontFamily: fonts.secondary[600] }} />
                 </View>
                 <TouchableOpacity
                   onPress={() => {

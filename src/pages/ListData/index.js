@@ -28,6 +28,7 @@ export default function ({ navigation, route }) {
   const [saldo, setSaldo] = useState({
     trx: 0,
     tarik: 0,
+    sisa: 0,
   })
 
   const onRefresh = React.useCallback(() => {
@@ -60,7 +61,7 @@ export default function ({ navigation, route }) {
           fid_user: res.id,
         })
         .then(x => {
-          console.log(x.data);
+          // console.log(x.data);
           setData(x.data);
         });
     });
@@ -240,7 +241,7 @@ export default function ({ navigation, route }) {
           <Text style={{
             fontFamily: fonts.secondary[400],
             fontSize: 15, textAlign: 'center'
-          }}>Rp. {new Intl.NumberFormat().format(saldo.tarik)}</Text>
+          }}>Rp. {new Intl.NumberFormat().format(saldo.sisa)}</Text>
 
         </View>
       </View>
